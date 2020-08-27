@@ -1,12 +1,14 @@
 import com.daniel.gradleconfig.Versions
+import com.daniel.gradleconfig.Libs
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+
 android {
-    compileSdkVersion 29
-    buildToolsVersion "30.0.0"
+    compileSdkVersion Versions.compileSdkVersion
+    buildToolsVersion Versions.buildToolsVersion
 
     defaultConfig {
         minSdkVersion Versions.minSdkVersion
@@ -28,5 +30,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation project(':commons')
+    api Libs.Core.kotlin_stdlib_jdk8
+    api Libs.Core.core_ktx
+    api Libs.Core.appcompat
+    api Libs.UI.constraintlayout
 }
