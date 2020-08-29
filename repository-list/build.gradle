@@ -1,3 +1,4 @@
+import com.daniel.gradleconfig.Libs
 import com.daniel.gradleconfig.Versions
 
 apply plugin: 'com.android.library'
@@ -24,9 +25,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(':commons')
+    implementation project(':domain')
 }

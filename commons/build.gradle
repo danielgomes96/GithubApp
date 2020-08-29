@@ -4,7 +4,8 @@ import com.daniel.gradleconfig.Libs
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'kotlin-kapt'
+//apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion Versions.compileSdkVersion
@@ -33,5 +34,9 @@ dependencies {
     api Libs.Core.kotlin_stdlib_jdk8
     api Libs.Core.core_ktx
     api Libs.Core.appcompat
+    api Libs.Core.kotlinx_coroutines_android
+    api Libs.Core.kotlinx_coroutines_core
+    api Libs.DI.koin_android
+    api Libs.DI.koin_androidx_viewmodel
     api Libs.UI.constraintlayout
 }

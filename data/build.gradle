@@ -29,5 +29,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation Libs.Core.kotlin_stdlib_jdk8
+    implementation project(':commons')
+    implementation project(':domain')
+    implementation Libs.Data.converter_gson
+    implementation Libs.Data.logging_interceptor
+    implementation Libs.Data.okhttp
+    implementation Libs.Data.retrofit
 }

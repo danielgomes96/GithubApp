@@ -29,5 +29,5 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation Libs.Core.kotlin_stdlib_jdk8
+    implementation project(':commons')
 }
