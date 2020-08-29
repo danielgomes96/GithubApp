@@ -8,7 +8,7 @@ class GithubRepositoryListMapper : BaseMapper<DTORepositoryList, List<GithubRepo
     override fun transform(entity: DTORepositoryList): List<GithubRepository> {
         val repositoryList = mutableListOf<GithubRepository>()
         entity.repositoriesList.map { repository ->
-            repositoryList.add(GithubRepository(repository.name, "jack"))
+            repositoryList.add(GithubRepository(repository.name, repository.owner.name))
         }
         return repositoryList.toList()
     }

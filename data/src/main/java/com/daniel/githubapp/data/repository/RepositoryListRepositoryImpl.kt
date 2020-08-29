@@ -8,12 +8,13 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class RepositoryListRepositoryImpl(
-    private val githubService: GithubService
+    private val githubService: GithubService,
+    private val githubRepositoryMapper: GithubRepositoryListMapper
 ) : GithubRepositoryList {
 
     override suspend fun getRepositoryList(): Flow<List<GithubRepository>> = flow {
         emit(
-            GithubRepositoryListMapper().transform(
+            githubRepositoryMapper.transform(
                 githubService.loadRepositoryPageFromApi(1)
             )
         )
