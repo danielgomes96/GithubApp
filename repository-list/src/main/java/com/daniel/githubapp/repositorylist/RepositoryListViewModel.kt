@@ -13,7 +13,7 @@ class RepositoryListViewModel(
     private val getRepositoryListUseCase: GetRepositoryListUseCase
 ) : BaseViewModel() {
 
-    val repoList: MutableLiveData<NetworkViewState<List<GithubRepository>>> get() = MutableLiveData()
+    val repoList: MutableLiveData<NetworkViewState<List<GithubRepository>>> get() = _repoList
     private val _repoList: MutableLiveData<NetworkViewState<List<GithubRepository>>> = MutableLiveData()
 
     fun getData() {

@@ -33,7 +33,7 @@ class RepositoryListActivity : AppCompatActivity() {
     }
 
     private fun setupObservers() {
-        viewModel.repoList.observe(this, Observer(::handleViewState))
+        viewModel.repoList.observe(this, Observer (::handleViewState))
     }
 
     private fun handleViewState(viewState: NetworkViewState<List<GithubRepository>>?) {
