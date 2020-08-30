@@ -7,7 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.daniel.githubapp.domain.entity.GithubRepository
 
-class RepositoryListAdapter : RecyclerView.Adapter<RepositoryListAdapter.RepositoryViewHolder>()  {
+class RepositoryListAdapter(
+    private val repositoryItemClick:(GithubRepository) -> Unit
+) : RecyclerView.Adapter<RepositoryListAdapter.RepositoryViewHolder>() {
 
     private var repoList: ArrayList<GithubRepository> = arrayListOf()
 
@@ -29,16 +31,22 @@ class RepositoryListAdapter : RecyclerView.Adapter<RepositoryListAdapter.Reposit
     override fun getItemCount(): Int = repoList.size
 
     override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) {
-        holder.bind(repoList[position])
+        holder.bind(repoList[position], repositoryItemClick)
     }
 
     inner class RepositoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val itemName = view.findViewById<TextView>(R.id.item_repository_list_name)
         private val itemOwnerName = view.findViewById<TextView>(R.id.item_repository_list_owner)
 
-        fun bind(repository: GithubRepository) = with(repository) {
+        fun bind(
+            repository: GithubRepository,
+            repositoryItemClick: (GithubRepository) -> Unit
+        ) = with(repository) {
             itemName.text = name
             itemOwnerName.text = ownerName
+            itemView.setOnClickListener {
+                repositoryItemClick(this)
+            }
         }
     }
 }

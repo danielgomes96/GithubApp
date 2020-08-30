@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/activity_repository_details_im_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_repository_details_tv_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/abc_vector_test" />
+
+    <TextView
+        android:id="@+id/activity_repository_details_tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/activity_repository_details_im_avatar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Nome do Repositório"/>
+
+    <TextView
+        android:id="@+id/activity_repository_details_tv_ownername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/activity_repository_details_im_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/activity_repository_details_tv_name"
+        tools:text="Nome do Usuário" />
+
+    <TextView
+        android:id="@+id/activity_repository_details_tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/activity_repository_details_im_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/activity_repository_details_tv_ownername"
+        tools:text="Descrição do repositório" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

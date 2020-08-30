@@ -1,10 +1,12 @@
 package com.daniel.githubapp.repositorylist
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
+import com.daniel.githubapp.commons.Consts.KEY_INTENT_REPOSITORY
 import com.daniel.githubapp.commons.extension.bind
 import com.daniel.githubapp.commons.extension.gone
 import com.daniel.githubapp.commons.extension.visible
@@ -13,6 +15,7 @@ import com.daniel.githubapp.domain.entity.NetworkViewState
 import com.daniel.githubapp.domain.entity.NetworkViewState.Success
 import com.daniel.githubapp.domain.entity.NetworkViewState.Error
 import com.daniel.githubapp.domain.entity.NetworkViewState.Loading
+import com.daniel.githubapp.repository_details.RepositoryDetailsActivity
 import com.daniel.githubapp.widget.ErrorView
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -23,7 +26,14 @@ class RepositoryListActivity : AppCompatActivity() {
     private val errorView by bind<ErrorView>(R.id.activity_repository_list_error_view)
     private val viewModel by viewModel<RepositoryListViewModel>()
     private val repositoryListAdapter by lazy {
-        RepositoryListAdapter()
+        RepositoryListAdapter(::onItemClicked)
+    }
+
+    private fun onItemClicked(githubRepository: GithubRepository) {
+        val intent = Intent(this, RepositoryDetailsActivity::class.java).apply {
+            putExtra(KEY_INTENT_REPOSITORY, githubRepository)
+        }
+        startActivity(intent)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +45,7 @@ class RepositoryListActivity : AppCompatActivity() {
     }
 
     private fun setupObservers() {
-        viewModel.repoList.observe(this, Observer (::handleViewState))
+        viewModel.repoList.observe(this, Observer(::handleViewState))
     }
 
     private fun handleViewState(viewState: NetworkViewState<List<GithubRepository>>?) {

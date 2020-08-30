@@ -1,3 +1,4 @@
+include ':repository-details'
 include ':widget'
 include ':commons'
 include ':repository-list'

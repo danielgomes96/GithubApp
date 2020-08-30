@@ -60,5 +60,4 @@ object Libs {
         const val constraintlayout: String = "androidx.constraintlayout:constraintlayout:" +
                 Versions.constraintlayout
     }
-
 }
