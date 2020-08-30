@@ -1,9 +1,9 @@
 package com.daniel.githubapp.repositorylist
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.daniel.githubapp.commons.base.BaseViewModel
 import com.daniel.githubapp.domain.entity.GithubRepository
+import com.daniel.githubapp.domain.entity.NetworkViewState
 import com.daniel.githubapp.domain.usecase.GetRepositoryListUseCase
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
@@ -13,18 +13,19 @@ class RepositoryListViewModel(
     private val getRepositoryListUseCase: GetRepositoryListUseCase
 ) : BaseViewModel() {
 
-    val repoList: MutableLiveData<List<GithubRepository>> = MutableLiveData()
+    val repoList: MutableLiveData<NetworkViewState<List<GithubRepository>>> get() = MutableLiveData()
+    private val _repoList: MutableLiveData<NetworkViewState<List<GithubRepository>>> = MutableLiveData()
 
     fun getData() {
+        _repoList.postValue(NetworkViewState.Loading())
         launch {
             getRepositoryListUseCase.execute()
                 .catch {
-                    Log.e("Error:", this.toString())
+                    _repoList.postValue(NetworkViewState.Error(this.toString()))
                 }
                 .collect { githubRepositoryList ->
-                    repoList.postValue(githubRepositoryList)
+                    _repoList.postValue(NetworkViewState.Success(githubRepositoryList))
                 }
         }
-
     }
 }
