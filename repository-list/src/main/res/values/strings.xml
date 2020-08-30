@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="repository_list_error_title">Erro! ):</string>
+    <string name="repository_list_error_body">Ocorreu um erro inesperado ao tentar listar os repositórios.</string>
+    <string name="repository_list_error_try_again">Tentar novamente</string>
+</resources>

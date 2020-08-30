@@ -21,7 +21,7 @@ class RepositoryListViewModel(
         launch {
             getRepositoryListUseCase.execute()
                 .catch {
-                    _repoList.postValue(NetworkViewState.Error(this.toString()))
+                    _repoList.postValue(NetworkViewState.Error())
                 }
                 .collect { githubRepositoryList ->
                     _repoList.postValue(NetworkViewState.Success(githubRepositoryList))

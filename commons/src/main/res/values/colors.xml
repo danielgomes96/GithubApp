@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colors name convention by http://chir.ag/projects/name-that-color/ !-->
+    <color name="eletric_violet">#6200EE</color>
+    <color name="purple">#3700B3</color>
+    <color name="egg_blue">#03DAC5</color>
+    <color name="white">#ffffff</color>
+    <color name="silver">#cccccc</color>
+</resources>

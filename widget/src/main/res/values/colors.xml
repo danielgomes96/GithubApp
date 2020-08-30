@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="generic_error_title">@color/eletric_violet</color>
+    <color name="generic_error_body">@color/eletric_violet</color>
+    <color name="generic_error_action_text">@color/purple</color>
+</resources>

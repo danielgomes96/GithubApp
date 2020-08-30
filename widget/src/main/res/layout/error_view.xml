@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/generic_error_img"
+        android:layout_width="124dp"
+        android:layout_height="112dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_error" />
+
+    <TextView
+        android:id="@+id/generic_error_title_txt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textColor="@color/generic_error_title"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:letterSpacing="-0.05"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/generic_error_img"
+        tools:text="Erro ao carregar repositórios!" />
+
+    <TextView
+        android:id="@+id/generic_error_body_txt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="43dp"
+        android:gravity="center"
+        android:textColor="@color/generic_error_body"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/generic_error_title_txt"
+        tools:text="Ocorreu um erro ao carregar esse conteúdo. Por favor, tente novamente" />
+
+    <Button
+        android:id="@+id/generic_error_action_btn"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/generic_error_action_txt"
+        app:layout_constraintEnd_toEndOf="@id/generic_error_action_txt"
+        app:layout_constraintStart_toStartOf="@id/generic_error_action_txt"
+        app:layout_constraintTop_toTopOf="@id/generic_error_action_txt" />
+
+    <TextView
+        android:id="@+id/generic_error_action_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:importantForAccessibility="no"
+        android:minWidth="185dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:textColor="@color/generic_error_action_text"
+        android:letterSpacing="-0.03"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/generic_error_body_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Testar novamente" />
+
+    <View
+        android:id="@+id/generic_error_action_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_corner_grey"
+        app:layout_constraintBottom_toBottomOf="@id/generic_error_action_txt"
+        app:layout_constraintEnd_toEndOf="@id/generic_error_action_txt"
+        app:layout_constraintStart_toStartOf="@id/generic_error_action_txt"
+        app:layout_constraintTop_toTopOf="@id/generic_error_action_txt" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/generic_error_action_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="generic_error_action_btn, generic_error_action_txt, generic_error_action_view"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
